@@ -35,16 +35,16 @@ como podem ver a imagem abaixo foi criado a exchange crud.exchange que irar enca
 
 <img alt="Logo do projeto" src="/img/crud_exchange.png" />
 
+Para isso foi criado as queues que e responsável por armazenar as mensagens em memória 
+por sequência entregalas para os consumers.
+
+<img alt="Logo do projeto" src="/img/queue.png" />
+
 Como consumidores foi criado Api pagamento que irão receber as mensagems encaminhadas da filas, 
 para isso precissa adicionar vinculação desta troca que iar decide como a encaminhar as mensagens, 
 seja para uma fila de mensagem ou para outro exchange.
 
-<img alt="Logo do projeto" src="/img/queue.png" />
-
-o Eureka Naming Server e usando banco de dados em memória distribuído redis. 
-Esse projeto tem como objetivo desmotar a cuminicação entre microsserviço.
-
-
+<img alt="Logo do projeto" src="/img/crud_produto_queue.png" />
 
 
 ## :hammer: Para executar o projeto no terminal, digite o seguinte comando:
