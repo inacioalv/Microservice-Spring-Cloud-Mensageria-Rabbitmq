@@ -28,7 +28,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-## Rabbitmq 
+## RabbitMQ 
 
 Esse projeto estabelece comunicação entre microsserviços por meio da arquitetura RabbitMQ baseada em mensagens. 
 O producer enviam mensagens para um exchange e encaminhar as mensagens para filas as queues,
@@ -48,8 +48,6 @@ para isso precissa adicionar vinculação desta troca que iar decide como a enca
 seja para uma fila de mensagem ou para outro exchange.
 
 <img alt="Logo do projeto" src="/img/crud_produto_queue.png" />
-
-## Eureka
 
 ## :hammer: Para executar o projeto no terminal, digite o seguinte comando:
 
