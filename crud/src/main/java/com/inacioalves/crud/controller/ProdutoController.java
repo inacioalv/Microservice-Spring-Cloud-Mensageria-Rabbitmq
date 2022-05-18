@@ -76,9 +76,9 @@ public class ProdutoController {
 	@PutMapping(produces = {"application/json","application/xml","application/x-yaml"}, 
 		     consumes = {"application/json","application/xml","application/x-yaml"})
 	public ProdutoDTO update(@RequestBody ProdutoDTO produtoDTO) {
-		ProdutoDTO proVo = produtoService.update(produtoDTO);
-		proVo.add(linkTo(methodOn(ProdutoController.class).findById(produtoDTO.getId())).withSelfRel());
-		return proVo;
+		ProdutoDTO prDTO = produtoService.update(produtoDTO);
+		prDTO.add(linkTo(methodOn(ProdutoController.class).findById(produtoDTO.getId())).withSelfRel());
+		return prDTO;
 	}
 	
 	@DeleteMapping("/{id}")
