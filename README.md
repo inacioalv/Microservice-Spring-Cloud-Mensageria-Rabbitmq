@@ -35,7 +35,9 @@ como podem ver a imagem abaixo foi criado a exchange crud.exchange que irar enca
 
 <img alt="Logo do projeto" src="/img/crud_exchange.png" />
 
-Como consumidores foi criado Api pagamento que irão receber as mensagems encaminham da filas
+Como consumidores foi criado Api pagamento que irão receber as mensagems encaminhadas da filas, 
+para isso precissa adicionar vinculação desta troca que iar decide como a encaminhar as mensagens, 
+seja para uma fila de mensagem ou para outro exchange.
 
 <img alt="Logo do projeto" src="/img/queue.png" />
 
@@ -55,24 +57,12 @@ mvn spring-boot:run
 Após executar o comando acima, basta apenas abrir o seguinte endereço e visualizar a execução do projeto:
 
 ```
-Product
-http://localhost:8000/product
-http://localhost:8000/product/all
-http://localhost:8000/product/{id}
+Produto
+http://localhost:8081/crud/produto
+http://localhost:8081/crud/produto/{id}
 
-User
-http://localhost:8811/user
-http://localhost:8811/user/all
-http://localhost:8811/user/{id}
-
-Order
-http://localhost:8100/cart/{cartid}
-http://localhost:8100/cart/createItem/{id}
-http://localhost:8100/cart/createItem/{cartid}/{id}
-http://localhost:8100/cart/createItem/{id}
-http://localhost:8100/order/user/{id}
-http://localhost:8100/order/{id}
-
+Pagamento
+http://localhost:8082/pagamento/venda
 ```
 
 
