@@ -27,12 +27,17 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 
 ## 💻 Projeto
-Estabelecendo comunicação entre microsserviços por meio da arquitetura RabbitMQ baseada em mensagens. 
+Esse projeto estabelece comunicação entre microsserviços por meio da arquitetura RabbitMQ baseada em mensagens. 
 O producer enviam mensagens para um exchange e encaminhar as mensagens para filas as queues,
 as queues irão armazenar as mensagens e encaminham elas para os consumers.
 Nesse projeto foi criado Api CRUD que tem o papel de producer que irar enviam mensagens para um exchange,
+como podem ver a imagem abaixo foi criado a exchange crud.exchange que irar encaminhar as mensagens para filas.
 
 <img alt="Logo do projeto" src="/img/crud_exchange.png" />
+
+Como consumidores foi criado Api pagamento que irão receber as mensagems encaminham da filas
+
+<img alt="Logo do projeto" src="/img/queue.png" />
 
 o Eureka Naming Server e usando banco de dados em memória distribuído redis. 
 Esse projeto tem como objetivo desmotar a cuminicação entre microsserviço.
