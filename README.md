@@ -66,6 +66,16 @@ http://localhost:8081/crud/produto/{id}
 Pagamento
 http://localhost:8082/pagamento/venda
 ```
+## Gateway
+```
+Produto
+http://localhost:8765/crud/produto
+http://localhost:8765/crud/produto/{id}
+
+Pagamento
+http://localhost:8765/pagamento/venda
+```
+
 
 
 
