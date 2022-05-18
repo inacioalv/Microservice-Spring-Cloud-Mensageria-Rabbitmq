@@ -31,7 +31,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 💻 Projeto
 Serviços web RESTful estabelecendo comunicação entre microsserviços e implementando autenticação jwt. 
 Esse projeto estabelece comunicação entre microsserviços por meio da arquitetura RabbitMQ baseada em mensagens. 
-O producer enviam mensagens para um exchange e encaminhar as mensagens para filas as queues, irão armazenar as mensagens e 
+O producer enviam mensagens para um exchange e encaminhar as mensagens para filas as queues, que irão armazenar as mensagens e 
 encaminham elas para os consumers. Nesse projeto foi criado Api CRUD que tem o papel de producer que irar enviam mensagens para um exchange,
 como podem ver a imagem abaixo foi criado a exchange crud.exchange que irar encaminhar as mensagens para filas.
 
