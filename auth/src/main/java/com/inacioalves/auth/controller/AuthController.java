@@ -1,5 +1,7 @@
 package com.inacioalves.auth.controller;
 
+import static org.springframework.http.ResponseEntity.ok;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,7 +21,7 @@ import com.inacioalves.auth.DTO.UserDTO;
 import com.inacioalves.auth.jwt.JwtTokenProvider;
 import com.inacioalves.auth.repository.UserRepository;
 
-import static org.springframework.http.ResponseEntity.ok;
+
 
 @RestController
 @RequestMapping("/login")
