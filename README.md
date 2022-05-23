@@ -23,19 +23,30 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [netflix-eureka](https://spring.io/projects/spring-cloud-sleuth)
 - [Mysql](https://www.mysql.com/)
 - [lombok](https://projectlombok.org/)
+- [JWT](https://www.rabbitmq.com/)
+- [RabbitMQ](https://www.rabbitmq.com/)
 - [swagger](https://swagger.io/)
 
 
 ## 💻 Projeto
-Estabelecendo comunicação entre microsserviços por meio da arquitetura RabbitMQ baseada em mensagens. 
-O producer enviam mensagens para um exchange e encaminhar as mensagens para filas as queues,
-as queues irão armazenar as mensagens e encaminham elas para os consumers.
-Nesse projeto foi criado Api CRUD que tem o papel de producer que irar enviam mensagens para um exchange
-o Eureka Naming Server e usando banco de dados em memória distribuído redis. 
-Esse projeto tem como objetivo desmotar a cuminicação entre microsserviço.
+Serviços web RESTful estabelecendo comunicação entre microsserviços e implementando autenticação jwt. 
+Esse projeto estabelece comunicação entre microsserviços por meio da arquitetura RabbitMQ baseada em mensagens. 
+O producer enviam mensagens para um exchange e encaminhar as mensagens para filas as queues, que irão armazenar as mensagens e 
+encaminham elas para os consumers. Nesse projeto foi criado Api CRUD que tem o papel de producer que irar enviam mensagens para um exchange,
+como podem ver a imagem abaixo foi criado a exchange crud.exchange que irar encaminhar as mensagens para filas.
 
+<img alt="Logo do projeto" src="/img/crud_exchange.png" />
 
+Para isso foi criado as queues que e responsável por armazenar as mensagens em memória 
+por sequência entregalas para os consumers.
 
+<img alt="Logo do projeto" src="/img/queue.png" />
+
+Como consumidores foi criado Api pagamento que irão receber as mensagems encaminhadas da filas, 
+para isso precissa adicionar vinculação desta troca que decide como encaminhar as mensagens, 
+seja para uma fila de mensagem ou para outro exchange.
+
+<img alt="Logo do projeto" src="/img/crud_produto_queue.png" />
 
 ## :hammer: Para executar o projeto no terminal, digite o seguinte comando:
 
@@ -47,25 +58,23 @@ mvn spring-boot:run
 Após executar o comando acima, basta apenas abrir o seguinte endereço e visualizar a execução do projeto:
 
 ```
-Product
-http://localhost:8000/product
-http://localhost:8000/product/all
-http://localhost:8000/product/{id}
+Produto
+http://localhost:8081/crud/produto
+http://localhost:8081/crud/produto/{id}
 
-User
-http://localhost:8811/user
-http://localhost:8811/user/all
-http://localhost:8811/user/{id}
-
-Order
-http://localhost:8100/cart/{cartid}
-http://localhost:8100/cart/createItem/{id}
-http://localhost:8100/cart/createItem/{cartid}/{id}
-http://localhost:8100/cart/createItem/{id}
-http://localhost:8100/order/user/{id}
-http://localhost:8100/order/{id}
-
+Pagamento
+http://localhost:8082/pagamento/venda
 ```
+## Gateway
+```
+Produto
+http://localhost:8765/crud/produto
+http://localhost:8765/crud/produto/{id}
+
+Pagamento
+http://localhost:8765/pagamento/venda
+```
+
 
 
 
