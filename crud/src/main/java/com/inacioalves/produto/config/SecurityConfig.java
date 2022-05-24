@@ -1,4 +1,4 @@
-package com.inacioalves.crud.config;
+package com.inacioalves.produto.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,8 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.inacioalves.crud.jwt.JwtConfigurer;
-import com.inacioalves.crud.jwt.JwtTokenProvider;
+import com.inacioalves.produto.jwt.JwtConfigurer;
+import com.inacioalves.produto.jwt.JwtTokenProvider;
 
 
 

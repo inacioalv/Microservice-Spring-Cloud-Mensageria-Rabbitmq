@@ -1,4 +1,4 @@
-package com.inacioalves.crud.jwt;
+package com.inacioalves.produto.jwt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;

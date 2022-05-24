@@ -1,4 +1,4 @@
-package com.inacioalves.crud.services;
+package com.inacioalves.produto.services;
 
 import java.util.Optional;
 
@@ -7,11 +7,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.inacioalves.crud.data.DTO.ProdutoDTO;
-import com.inacioalves.crud.exception.ResourceNotFoundException;
-import com.inacioalves.crud.message.ProdutoSendMessage;
-import com.inacioalves.crud.model.Produto;
-import com.inacioalves.crud.repository.ProdutoRepository;
+import com.inacioalves.produto.data.DTO.ProdutoDTO;
+import com.inacioalves.produto.exception.ResourceNotFoundException;
+import com.inacioalves.produto.message.ProdutoSendMessage;
+import com.inacioalves.produto.model.Produto;
+import com.inacioalves.produto.repository.ProdutoRepository;
 
 @Service
 public class ProdutoService {

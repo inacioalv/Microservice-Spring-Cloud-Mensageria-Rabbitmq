@@ -1,4 +1,4 @@
-package com.inacioalves.crud.jwt;
+package com.inacioalves.produto.jwt;
 
 import java.util.Base64;
 import java.util.Collection;

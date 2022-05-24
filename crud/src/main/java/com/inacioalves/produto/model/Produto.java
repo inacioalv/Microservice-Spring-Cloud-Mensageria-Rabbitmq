@@ -1,4 +1,4 @@
-package com.inacioalves.crud.model;
+package com.inacioalves.produto.model;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 import org.modelmapper.ModelMapper;
 
-import com.inacioalves.crud.data.DTO.ProdutoDTO;
+import com.inacioalves.produto.data.DTO.ProdutoDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

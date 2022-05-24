@@ -1,11 +1,11 @@
-package com.inacioalves.crud.message;
+package com.inacioalves.produto.message;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.inacioalves.crud.data.DTO.ProdutoDTO;
+import com.inacioalves.produto.data.DTO.ProdutoDTO;
 
 @Component
 public class ProdutoSendMessage {

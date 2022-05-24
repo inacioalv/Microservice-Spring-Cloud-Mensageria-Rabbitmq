@@ -1,4 +1,4 @@
-package com.inacioalves.crud.data.DTO;
+package com.inacioalves.produto.data.DTO;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ import org.springframework.hateoas.RepresentationModel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.inacioalves.crud.model.Produto;
+import com.inacioalves.produto.model.Produto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.inacioalves.crud.config;
+package com.inacioalves.produto.config;
 
 import org.springframework.amqp.core.Exchange;
 import org.springframework.amqp.core.ExchangeBuilder;

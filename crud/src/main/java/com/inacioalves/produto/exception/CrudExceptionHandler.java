@@ -1,4 +1,4 @@
-package com.inacioalves.crud.exception;
+package com.inacioalves.produto.exception;
 
 import java.util.Date;
 

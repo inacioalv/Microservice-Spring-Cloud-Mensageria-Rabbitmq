@@ -1,4 +1,4 @@
-package com.inacioalves.crud.controller;
+package com.inacioalves.produto.controller;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -24,8 +24,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inacioalves.crud.data.DTO.ProdutoDTO;
-import com.inacioalves.crud.services.ProdutoService;;
+import com.inacioalves.produto.data.DTO.ProdutoDTO;
+import com.inacioalves.produto.services.ProdutoService;;
 
 @RestController
 @RequestMapping("/produto")
