@@ -56,4 +56,18 @@ public class VendaService {
 				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
 		return VendaDTO.create(entity);
 	}
+	
+	public VendaDTO update (VendaDTO vendaDTO) {
+		Venda venda = vendaRepository.save(Venda.create(vendaDTO));
+		
+		List<ProdutoVenda> produtosSalvos =  new ArrayList<>();
+		vendaDTO.getProdutos().forEach(p -> {
+			ProdutoVenda pv = ProdutoVenda.create(p);
+			pv.setVenda(venda);
+			produtosSalvos.add(produtoVendaRepository.save(pv));
+		});
+		venda.setProdutos(produtosSalvos);
+		
+		return VendaDTO.create(venda);
+	}
 }

@@ -18,6 +18,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -78,5 +79,13 @@ public class VendaController {
 		VendaDTO proVo = vendaService.create(vendaDTO);
 		proVo.add(linkTo(methodOn(VendaController.class).findById(proVo.getId())).withSelfRel());
 		return proVo;
+	}
+	
+	@PutMapping(produces = {"application/json","application/xml","application/x-yaml"}, 
+		     consumes = {"application/json","application/xml","application/x-yaml"})
+	public VendaDTO update(@RequestBody VendaDTO vendaDTO) {
+		VendaDTO venDTO = vendaService.update(vendaDTO);
+		venDTO.add(linkTo(methodOn(VendaController.class).findById(vendaDTO.getId())).withSelfRel());
+		return venDTO;
 	}
 }
