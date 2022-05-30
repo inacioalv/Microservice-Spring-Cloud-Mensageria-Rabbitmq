@@ -1,4 +1,4 @@
-package com.inacioalves.pagamento.repository;
+package com.inacioalves.pagamento.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

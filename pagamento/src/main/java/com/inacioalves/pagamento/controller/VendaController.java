@@ -15,6 +15,7 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -87,5 +88,11 @@ public class VendaController {
 		VendaDTO venDTO = vendaService.update(vendaDTO);
 		venDTO.add(linkTo(methodOn(VendaController.class).findById(vendaDTO.getId())).withSelfRel());
 		return venDTO;
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> delete(@PathVariable("id") Long id){
+		vendaService.delete(id);
+		return ResponseEntity.ok().build();
 	}
 }

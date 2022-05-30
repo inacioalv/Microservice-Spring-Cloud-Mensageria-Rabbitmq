@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.inacioalves.pagamento.data.DTO.VendaDTO;
+import com.inacioalves.pagamento.exception.DataIntegrityException;
+import com.inacioalves.pagamento.exception.ResourceNotFoundException;
 import com.inacioalves.pagamento.model.ProdutoVenda;
 import com.inacioalves.pagamento.model.Venda;
 import com.inacioalves.pagamento.repository.ProdutoVendaRepository;
-import com.inacioalves.pagamento.repository.ResourceNotFoundException;
 import com.inacioalves.pagamento.repository.VendaRepository;
 
 @Service
@@ -71,5 +73,19 @@ public class VendaService {
 		}
 		
 		return VendaDTO.create(venda);
+	}
+	
+	public void delete(Long id) {
+		try {
+			verifyIfExists(id);
+			vendaRepository.deleteById(id);
+		} catch (DataIntegrityViolationException  e) {
+			throw new DataIntegrityException("Não é possível deletar um evento com atividades vinculadas a ele.");
+		}
+	}
+	
+	private Venda verifyIfExists(Long id) throws ResourceNotFoundException {
+		return vendaRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Venda not found with ID:"+id));
 	}
 }
