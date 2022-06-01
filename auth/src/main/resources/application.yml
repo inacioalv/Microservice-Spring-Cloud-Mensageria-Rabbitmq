@@ -21,11 +21,10 @@ spring:
     username: root
     password: root
     
-security:
-  jwt:
-    token: 
-      secret-key: chave_microservices
-      expire-length: 360000  
+
+jwt:
+    secret: chave_microservices
+    expiration: 360000  
       
 eureka:
   instance: 
