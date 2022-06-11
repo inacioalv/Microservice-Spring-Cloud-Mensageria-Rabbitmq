@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@JsonPropertyOrder({ "id", "idProduto", "quantidade" })
+@JsonPropertyOrder({ "id", "idProduto", "quantidade","nome_produto" })
 @Data
 @ToString
 @NoArgsConstructor
@@ -33,6 +33,9 @@ public class ProdutoVendaDTO extends RepresentationModel<ProdutoVendaDTO> implem
 
 	@JsonProperty("quantidade")
 	private Integer quantidade;
+	
+	@JsonProperty("nome_produto")
+	private String nome_produto;
 
 	public static ProdutoVendaDTO create(ProdutoVenda produtoVenda) {
 		return new ModelMapper().map(produtoVenda, ProdutoVendaDTO.class);

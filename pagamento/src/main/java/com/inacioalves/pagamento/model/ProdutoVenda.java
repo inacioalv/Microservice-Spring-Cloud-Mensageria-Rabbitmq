@@ -40,8 +40,11 @@ public class ProdutoVenda implements Serializable {
 	@Column(name = "id_produto", nullable = false, length = 10)
 	private Long idProduto;
 	
+	@Column(name = "nome", nullable = false, length = 255)
+	private String nome_produto;
+	
 	@Column(name = "quantidade", nullable = false, length = 10)
-	private Integer quantidade;
+	private Double quantidade;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_venda")

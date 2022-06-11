@@ -74,13 +74,13 @@ public class VendaController {
 		return new ResponseEntity<>(pagedModel,HttpStatus.OK);
 	}
 	
-	@PostMapping(produces = {"application/json","application/xml","application/x-yaml"}, 
-			     consumes = {"application/json","application/xml","application/x-yaml"})
-	public VendaDTO create(@RequestBody VendaDTO vendaDTO) {
-		VendaDTO proVo = vendaService.create(vendaDTO);
-		proVo.add(linkTo(methodOn(VendaController.class).findById(proVo.getId())).withSelfRel());
-		return proVo;
-	}
+	@PostMapping(value = "/{id}", produces = {"application/json","application/xml","application/x-yaml"}, 
+		     consumes = {"application/json","application/xml","application/x-yaml"})
+	public VendaDTO create(@RequestBody VendaDTO vendaDTO,@PathVariable Long id) {
+	VendaDTO proVo = vendaService.create(vendaDTO,id);
+	proVo.add(linkTo(methodOn(VendaController.class).findById(proVo.getId())).withSelfRel());
+	return proVo;
+}
 	
 	@PutMapping(produces = {"application/json","application/xml","application/x-yaml"}, 
 		     consumes = {"application/json","application/xml","application/x-yaml"})
@@ -95,4 +95,5 @@ public class VendaController {
 		vendaService.delete(id);
 		return ResponseEntity.ok().build();
 	}
+	
 }

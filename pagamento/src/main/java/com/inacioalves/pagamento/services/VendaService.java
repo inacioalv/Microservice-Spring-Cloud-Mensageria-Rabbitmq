@@ -9,11 +9,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.inacioalves.pagamento.data.DTO.ProdutoDTO;
 import com.inacioalves.pagamento.data.DTO.VendaDTO;
 import com.inacioalves.pagamento.exception.DataIntegrityException;
 import com.inacioalves.pagamento.exception.ResourceNotFoundException;
 import com.inacioalves.pagamento.model.ProdutoVenda;
 import com.inacioalves.pagamento.model.Venda;
+import com.inacioalves.pagamento.repository.ProdutoRepository;
 import com.inacioalves.pagamento.repository.ProdutoVendaRepository;
 import com.inacioalves.pagamento.repository.VendaRepository;
 
@@ -23,6 +25,8 @@ public class VendaService {
 	
 	private final VendaRepository vendaRepository;
 	private final ProdutoVendaRepository produtoVendaRepository;
+	@Autowired
+	private ProdutoRepository produtoRepository;
 
 	@Autowired
 	public VendaService(VendaRepository vendaRepository,ProdutoVendaRepository produtoVendaRepository) {
@@ -30,17 +34,20 @@ public class VendaService {
 		this.produtoVendaRepository =  produtoVendaRepository;
 	}
 	
-	public VendaDTO create(VendaDTO vendaDTO) {
+	public VendaDTO create(VendaDTO vendaDTO,Long id) {
 		Venda venda = vendaRepository.save(Venda.create(vendaDTO));
+		ProdutoDTO produto = produtofindById(id);
 		
 		List<ProdutoVenda> produtosSalvos =  new ArrayList<>();
 		vendaDTO.getProdutos().forEach(p -> {
 			ProdutoVenda pv = ProdutoVenda.create(p);
+			pv.setIdProduto(produto.getId());
+			pv.setNome_produto(produto.getNome());
 			pv.setVenda(venda);
+			venda.setValorTotal(produto.getPreco()*pv.getQuantidade());
 			produtosSalvos.add(produtoVendaRepository.save(pv));
 		});
 		venda.setProdutos(produtosSalvos);
-		
 		return VendaDTO.create(venda);
 	}
 	
@@ -55,7 +62,7 @@ public class VendaService {
 	
 	public VendaDTO findById(Long id) {
 		var entity = vendaRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
+				.orElseThrow(() -> new ResourceNotFoundException("Não há registros encontrados para isse ID"));
 		return VendaDTO.create(entity);
 	}
 	
@@ -86,6 +93,13 @@ public class VendaService {
 	
 	private Venda verifyIfExists(Long id) throws ResourceNotFoundException {
 		return vendaRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Venda not found with ID:"+id));
+				.orElseThrow(() -> new ResourceNotFoundException("Venda não encontrado com ID:"+id));
+	}
+	
+	
+	public ProdutoDTO produtofindById(Long id) {
+		var entity = produtoRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Não há registros encontrados para isse ID"));
+		return ProdutoDTO.create(entity);
 	}
 }

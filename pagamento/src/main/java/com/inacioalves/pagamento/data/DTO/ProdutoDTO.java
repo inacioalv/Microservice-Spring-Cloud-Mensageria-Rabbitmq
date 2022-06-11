@@ -2,6 +2,7 @@ package com.inacioalves.pagamento.data.DTO;
 
 import java.io.Serializable;
 
+
 import org.modelmapper.ModelMapper;
 import org.springframework.hateoas.RepresentationModel;
 
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@JsonPropertyOrder({"id","estoque"})
+@JsonPropertyOrder({"id","nome","estoque","preco"})
 @Getter
 @Setter
 @ToString
@@ -29,9 +30,12 @@ public class ProdutoDTO extends RepresentationModel<ProdutoDTO> implements Seria
 
 	@JsonProperty("id")	
 	private Long id;
-	
-	@JsonProperty("estoque")
+	@JsonProperty("nome")	
+	private String nome;
+	@JsonProperty("estoque")	
 	private Integer estoque;
+	@JsonProperty("preco")	
+	private Double preco;
 	
 	public static ProdutoDTO create(Produto produto) {
 		return new ModelMapper().map(produto, ProdutoDTO.class);

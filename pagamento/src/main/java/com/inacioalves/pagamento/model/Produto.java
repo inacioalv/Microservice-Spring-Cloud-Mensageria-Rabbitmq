@@ -27,8 +27,14 @@ public class Produto {
 	@Id
 	private Long id;
 	
+	@Column(name = "nome", nullable = false, length = 255)
+	private String nome;
+	
 	@Column(name = "estoque", nullable = false, length = 10)
 	private Integer estoque;
+	
+	@Column(name = "preco", nullable = false, length = 10)
+	private Double preco;
 	
 	public static Produto create(ProdutoDTO produtoDTO) {
 		return new ModelMapper().map(produtoDTO, Produto.class);

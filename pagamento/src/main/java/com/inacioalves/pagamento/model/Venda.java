@@ -48,7 +48,6 @@ public class Venda implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "venda", cascade = CascadeType.REFRESH)
 	private List<ProdutoVenda> produtos;
 	
-	@Column(name = "valorTotal", nullable = false, length = 10)
 	private Double valorTotal;
 	
 	public static Venda create(VendaDTO  vendaDTO) {
