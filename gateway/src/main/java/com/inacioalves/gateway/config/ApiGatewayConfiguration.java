@@ -18,15 +18,13 @@ public class ApiGatewayConfiguration {
 								.addRequestParameter("Param", "MyValue"))
 						.uri("http://httpbin.org:80"))
 				
-				.route(p -> p.path("/crud/produto/**")
-						.uri("lb://crud"))
+				.route(p -> p.path("/produto/produto/**")
+						.uri("lb://produto"))
 				
 				.route(p -> p.path("/pagamento/venda/**")
 						.uri("lb://pagamento"))
 				
 				.route(p -> p.path("/auth/login/**")//URL
-						.uri("lb://auth"))//name application.properties
-				.route(p -> p.path("/auth/login/testeSecurity/**")//URL
 						.uri("lb://auth"))//name application.properties
 				
 				.build();
