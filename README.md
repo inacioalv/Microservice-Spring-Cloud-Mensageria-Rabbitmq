@@ -76,7 +76,7 @@ http://localhost:8765/produto/produto
 http://localhost:8765/produto/produto/{id}
 
 Pagamento
-http://localhost:8765/pagamento/venda
+http://localhost:8765/pagamento/venda/{id}
 
 Autenticação
 http://localhost:8765/auth/login
