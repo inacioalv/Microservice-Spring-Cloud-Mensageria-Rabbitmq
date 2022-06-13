@@ -32,7 +32,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 Serviços web RESTful estabelecendo comunicação entre microsserviços e implementando autenticação jwt. 
 Esse projeto estabelece comunicação entre microsserviços por meio da arquitetura RabbitMQ baseada em mensagens. 
 O producer enviam mensagens para um exchange e encaminhar as mensagens para filas as queues, que irão armazenar as mensagens e 
-encaminham elas para os consumers. Nesse projeto foi criado Api CRUD que tem o papel de producer que irar enviam mensagens para um exchange,
+encaminham elas para os consumers. Nesse projeto foi criado Api produto que tem o papel de producer que irar enviam mensagens para um exchange,
 como podem ver a imagem abaixo foi criado a exchange crud.exchange que irar encaminhar as mensagens para filas.
 
 <img alt="Logo do projeto" src="/img/crud_exchange.png" />
@@ -59,20 +59,28 @@ Após executar o comando acima, basta apenas abrir o seguinte endereço e visual
 
 ```
 Produto
-http://localhost:8081/crud/produto
-http://localhost:8081/crud/produto/{id}
+http://localhost:8081/produto/produto
+http://localhost:8081/produto/produto/{id}
 
 Pagamento
-http://localhost:8082/pagamento/venda
+http://localhost:8082/pagamento/venda/{id}
+
+Autenticação
+http://localhost:8083/auth/login
+http://localhost:8083/auth/user
 ```
 ## Gateway
 ```
 Produto
-http://localhost:8765/crud/produto
-http://localhost:8765/crud/produto/{id}
+http://localhost:8765/produto/produto
+http://localhost:8765/produto/produto/{id}
 
 Pagamento
 http://localhost:8765/pagamento/venda
+
+Autenticação
+http://localhost:8765/auth/login
+http://localhost:8765/auth/user
 ```
 
 
