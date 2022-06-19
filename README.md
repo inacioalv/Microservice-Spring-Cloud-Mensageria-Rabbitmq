@@ -29,10 +29,14 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 
 ## 💻 Projeto
-Serviços web RESTful estabelecendo comunicação entre microsserviços e implementando autenticação jwt. 
-Esse projeto estabelece comunicação entre microsserviços por meio da arquitetura RabbitMQ baseada em mensagens. 
-O producer enviam mensagens para um exchange e encaminhar as mensagens para filas as queues, que irão armazenar as mensagens e 
-encaminham elas para os consumers. Nesse projeto foi criado Api produto que tem o papel de producer que irar enviam mensagens para um exchange,
+Serviços web RESTful estabelecendo comunicação entre microsserviços por meio da arquitetura RabbitMQ baseada em mensagens 
+e implementando autenticação jwt.
+<img alt="Logo do projeto" src="/img/Arquitetura de Microserviço.png" />
+                                
+Esse projeto foi cirado três microsserviços temos o autenticação,produto e pagamento. Para fazer a comunicação entre produto e pagamento 
+foi utilizado o service broker RabbiMq. O producer enviam mensagens para um exchange e encaminhar as mensagens para filas as queues, 
+que irão armazenar as mensagens e encaminham elas para os consumers.
+Nesse projeto Api produto tem o papel de producer que irar enviam mensagens para um exchange,
 como podem ver a imagem abaixo foi criado a exchange crud.exchange que irar encaminhar as mensagens para filas.
 
 <img alt="Logo do projeto" src="/img/crud_exchange.png" />
@@ -42,7 +46,7 @@ por sequência entregalas para os consumers.
 
 <img alt="Logo do projeto" src="/img/queue.png" />
 
-Como consumidores foi criado Api pagamento que irão receber as mensagems encaminhadas da filas, 
+Como consumidores Api pagamento irar receber as mensagems encaminhadas da filas, 
 para isso precissa adicionar vinculação desta troca que decide como encaminhar as mensagens, 
 seja para uma fila de mensagem ou para outro exchange.
 
