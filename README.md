@@ -33,7 +33,7 @@ Serviços web RESTful estabelecendo comunicação entre microsserviços por meio
 e implementando autenticação jwt.
 <img alt="Logo do projeto" src="/img/Arquitetura de Microserviço.png" />
                                 
-Esse projeto foi cirado três microsserviços temos o autenticação,produto e pagamento. Para fazer a comunicação entre produto e pagamento 
+Esse projeto possui três microsserviços autenticação,produto e pagamento, para fazer a comunicação entre produto e pagamento 
 foi utilizado o service broker RabbiMq. O producer enviam mensagens para um exchange e encaminhar as mensagens para filas as queues, 
 que irão armazenar as mensagens e encaminham elas para os consumers.
 Nesse projeto Api produto tem o papel de producer que irar enviam mensagens para um exchange,
